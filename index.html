@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<title>Convertor</title>
+	<script type="text/javascript" src="js/convertor.js"></script>
+	<style>
+		body, html {
+					margin: 0;
+					padding: 0;
+					width: 100%;
+					height: 100%;
+					}
+	</style>
+</head>
+
+<body>
+		<table border="1" cellpadding="10" cellspacing="0">
+			<tbody>
+			<tr>
+				<td align="center" valign="middle">
+
+					<form name="property_form">
+					<font face="Arial, Helvetica" size="3"><b>Property:</b></font>
+						<select name="the_menu" size="1" onchange="UpdateUnitMenu(this, document.form_A.unit_menu); UpdateUnitMenu(this, document.form_B.unit_menu)"></select>
+					</form>
+
+					<script language="JavaScript">
+					// This fragment initializes the property dropdown menu using the data defined
+					// above in the 'Data Definitions' section
+					FillMenuWithArray(document.property_form.the_menu, property);
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" valign="middle">
+					<form name="form_A" onsubmit="return false">
+						<font color="black" face="arial, helvetica" size="5">
+							<b>From: </b>
+						</font>
+							<p>
+								<select name="unit_menu" onchange="CalculateUnit(this.form, document.form_B)"></select>
+							</p>
+						<p>
+						<input name="unit_input" size="20" maxlength="20" value="" placeholder="Value to convert" type="number" onkeyup="CalculateUnit(this.form, document.form_B)">
+						</p>
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" valign="middle">
+					<form name="form_B" onsubmit="return false">
+						<font color="black" face="arial, helvetica" size="5">
+							<b>To: </b>
+						</font>
+							<p>
+								<select name="unit_menu" onchange="CalculateUnit(document.form_A, document.form_B)"></select>
+							</p>
+						<p>
+						<input name="unit_input" disabled="disabled" size="20" maxlength="20" value="" placeholder="Converted value" type="number" onchange="CalculateUnit(this.form, document.form_B)">
+						</p>
+					</form>
+				</td>
+	</tr>
+	<tr>
+	<td align="right" valign="middle">
+
+	<form name="util_form">
+
+	<input name="clear_form" value=" Clear Form " onclick="ClearForm()" type="button">
+
+	<input name="clear_form" value=" Switch unit types" onclick="Switch()" type="button">
+	</form>
+
+	</td>
+	</tr>
+	</tbody></table>
+
+	<script language="JavaScript">
+	// *** Start-up and refresh/reload Commands **********************************
+	//
+	// Since the first property is automatically selected, initialize the unit
+	// menus with its units too...
+	// .. But, only initialize unit menus when the Property menu hasn't been used
+	if (document.property_form.the_menu.selectedIndex == 0){
+		if (document.images){
+			// Also, define the window name for correct targeting
+			window.name="JSUC_main";
+			FillMenuWithArray(document.form_A.unit_menu, unit[0]);
+			FillMenuWithArray(document.form_B.unit_menu, unit[0]);
+		} else {
+			// Check to see if the browser will let you resize the drop-down
+			// menus.  The user will already have seen errors, but at least
+			// give him/her a clue...
+			alert("The browser you are using won't let you run JSUC correctly. Maybe you should upgrade... You shpuld try Firefox");
+		}
+	}
+	</script>
+
+	</body>
+
+</html>
