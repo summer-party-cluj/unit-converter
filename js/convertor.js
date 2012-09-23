@@ -138,13 +138,10 @@ factor[19] = new Array(1, .02831685, .0004719474, 2.731177E-7, 6.309020E-05);
 
 // *** Functions *************************************************************
 
-function UpdateUnitMenu(propMenu, unitMenu){
+function UpdateUnitMenu(propId, unitMenu){
 	// Updates the units displayed in the unitMenu according to the selection of
 	// property in the propMenu.
-	var i;
-
-	i = parseInt(propMenu.dataset["unit"]);
-	FillMenuWithArray(unitMenu, unit[i]);
+	FillMenuWithArray(unitMenu, unit[propId]);
 }
 
 function FillMenuWithArray(myMenu, myArray){
@@ -240,3 +237,28 @@ function Switch(){
 	
 	
 }
+function unitPropertyClick(e) {
+	var el = e.target,
+		propertyId;
+	propertyId = el.getAttribute("data-unit")
+	UpdateUnitMenu(propertyId, document.form_A.unit_menu);
+	UpdateUnitMenu(propertyId, document.form_B.unit_menu)
+}
+
+function initLogic() {
+	var liLength,
+		li,
+		ulEl,
+		i;
+	liLength = property.length
+	ulEl = document.getElementById("propsContainer");
+	for (i = 0; i < liLength; i = i + 1) {
+		li = document.createElement("li");
+		li.setAttribute("data-unit", i);
+		li.addEventListener("click", unitPropertyClick, false);
+		li.innerHTML = property[i];
+		ulEl.appendChild(li);
+	}
+}
+
+window.addEventListener("DOMContentLoaded", initLogic, false);

@@ -18,11 +18,7 @@
 </head>
 
 <body>
-<ul><li data-unit="5" onclick="UpdateUnitMenu(this, document.form_A.unit_menu); UpdateUnitMenu(this, document.form_B.unit_menu)">TEST</li></ul>
-		<table border="1" cellpadding="10" cellspacing="0">
-			<tbody>
-			<tr>
-				<td align="center" valign="middle">
+	<ul id="propsContainer"></ul>
 
 					<form name="property_form">
 					<font face="Arial, Helvetica" size="3"><b>Property:</b></font>
@@ -34,10 +30,7 @@
 					// above in the 'Data Definitions' section
 					FillMenuWithArray(document.property_form.the_menu, property);
 					</script>
-				</td>
-			</tr>
-			<tr>
-				<td align="center" valign="middle">
+
 					<form name="form_A" onsubmit="return false">
 						<font color="black" face="arial, helvetica" size="5">
 							<b>From: </b>
@@ -49,10 +42,7 @@
 						<input name="unit_input" size="20" maxlength="20" value="" placeholder="Value to convert" type="number" onkeyup="CalculateUnit(this.form, document.form_B)">
 						</p>
 					</form>
-				</td>
-			</tr>
-			<tr>
-				<td align="center" valign="middle">
+
 					<form name="form_B" onsubmit="return false">
 						<font color="black" face="arial, helvetica" size="5">
 							<b>To: </b>
@@ -64,10 +54,6 @@
 						<input name="unit_input" disabled="disabled" size="20" maxlength="20" value="" placeholder="Converted value" type="number" onchange="CalculateUnit(this.form, document.form_B)">
 						</p>
 					</form>
-				</td>
-	</tr>
-	<tr>
-	<td align="right" valign="middle">
 
 	<form name="util_form">
 
@@ -76,9 +62,6 @@
 	<input name="clear_form" value=" Switch unit types" onclick="Switch()" type="button">
 	</form>
 
-	</td>
-	</tr>
-	</tbody></table>
 
 	<script language="JavaScript">
 	// *** Start-up and refresh/reload Commands **********************************
