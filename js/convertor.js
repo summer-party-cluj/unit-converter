@@ -143,7 +143,7 @@ function UpdateUnitMenu(propMenu, unitMenu){
 	// property in the propMenu.
 	var i;
 
-	i = propMenu.selectedIndex;
+	i = parseInt(propMenu.dataset["unit"]);
 	FillMenuWithArray(unitMenu, unit[i]);
 }
 
