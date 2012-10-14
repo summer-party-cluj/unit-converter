@@ -1,0 +1,38 @@
+#propsContainer{
+	text-align: left;
+	vertical-align:middle;
+	height: 30 px;
+	width: 20%;
+	margin: auto;
+	list-style-type: none;
+	border-color: #363636;
+}
+
+
+#propsContainer li{
+	background-color: #333333;
+	text-align: absolute;
+	text-indent: 5%;
+	height: 40px;
+	color: #FFFFFF;
+	border: #FFFFFF;
+	border-bottom-style: solid;
+	border-bottom-width: 1.2px;
+	border-bottom-color: #111111;
+	font-family: "Arial";
+	font-size: 15;
+	line-height: 40px;
+	
+	
+}
+
+#Titlu{
+	background-color: #FFFFFF;
+	position: relative;
+	left: 20%;
+	color: #000000;
+	border: #FFFFFF;
+	border-width: 2px;
+	font-family: "Arial";
+	font-size: large;
+}
